@@ -22,6 +22,21 @@ userF = [] #유저가 입력한 노래 정보
 userFlist = [] #유저 개인 노래 저장 배열
 allplaylist = [] #플레이리스트 배열
 
+def load_chrome_driver():
+      
+    options = webdriver.ChromeOptions()
+
+    options.binary_location = os.getenv('GOOGLE_CHROME_BIN')
+
+    options.add_argument('--headless')
+    # options.add_argument('--disable-gpu')
+    options.add_argument('--no-sandbox')
+
+    return webdriver.Chrome(executable_path=str(os.environ.get('CHROME_EXECUTABLE_PATH')), chrome_options=options)
+
+    
+    
+    
 def title(msg):
     global music
 
@@ -84,16 +99,6 @@ def play_next(ctx):
             client.loop.create_task(vc.disconnect())
 
 
-def load_chrome_driver():
-    options = webdriver.ChromeOptions()
-
-    options.binary_location = os.getenv('GOOGLE_CHROME_BIN')
-
-    options.add_argument('--headless')
-    # options.add_argument('--disable-gpu')
-    options.add_argument('--no-sandbox')
-
-    return webdriver.Chrome(executable_path=str(os.environ.get('CHROME_EXECUTABLE_PATH')), chrome_options=options)
 
 
 
