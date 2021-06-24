@@ -459,4 +459,4 @@ async def 즐겨찾기삭제(ctx, *, number):
 
 
 
-bot.run("ODU2ODc5NDQzMTIwMzU3NDA2.YNHdKw.lt6JJ-_YZc38PFS-x3nsIOKHlhI")
+bot.run('ODU2ODc5NDQzMTIwMzU3NDA2.YNHdKw.lt6JJ-_YZc38PFS-x3nsIOKHlhI')
