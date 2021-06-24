@@ -193,14 +193,12 @@ async def URL재생(ctx, *, url):
 async def 재생(ctx, *, msg):
     try:
         global vc
-        await ctx.send("자~ 드가자~")
+        await ctx.send("잠시만 기다려줘!")
         vc = await ctx.message.author.voice.channel.connect()
     except:
         try:
             await ctx.message.author.voice.channel.connect()
-        except:
-            await ctx.send("아무 음성채널에 접속해주세요 !")
-
+            
     if not vc.is_playing():
 
         options = webdriver.ChromeOptions()
@@ -237,6 +235,7 @@ async def 재생(ctx, *, msg):
         result, URLTEST = title(msg)
         song_queue.append(URLTEST)
         await ctx.send("이미 노래가 재생 중이라" + result + "을(를) 대기열로 추가시켰어요!")
+      
 @bot.command()
 async def 일시정지(ctx):
     if vc.is_playing():
