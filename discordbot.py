@@ -1,4 +1,4 @@
-import discord
+import 
 from discord.ext import commands
 from youtube_dl import YoutubeDL
 import bs4
@@ -104,7 +104,7 @@ async def on_ready():
     print('connection was succesful')
     await bot.change_presence(status=discord.Status.online, activity=discord.Game("롤초중고딩 서버 응원"))
 
-    if not discord.opus.is_loaded()
+    if not discord.opus.is_loaded():
         discord.opus.load_opus('opus')
 
 @bot.command()
