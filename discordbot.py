@@ -193,12 +193,15 @@ async def URL재생(ctx, *, url):
 async def 재생(ctx, *, msg):
     try:
         global vc
-        await ctx.send("잠시만 기다려줘!")
+        
         vc = await ctx.message.author.voice.channel.connect()
     except:
         try:
             await ctx.message.author.voice.channel.connect()
-            
+        except:
+             await ctx.send("잠시만 기다려줘!")
+
+
     if not vc.is_playing():
 
         options = webdriver.ChromeOptions()
