@@ -6,4 +6,6 @@ beautifulsoup4
 youtube-dl
 ffmpeg-python
 requests
+lxml
 urllib3
+Options
