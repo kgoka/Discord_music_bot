@@ -116,7 +116,7 @@ async def on_ready():
 async def on_member_join(member): 
     channel = client.get_channel('794404596340228110')
     await member.send('롤하는 초중고딩 서버에 온걸 환영해 ! \n 우선 #규칙을 꼭 필독하고 #인증 방으로 가서 인증을 받아줘! n\ https://open.kakao.com/o/gIuFcpjd 톡방 가입은 필수.. 알지??') #privit 한 메세지를 보내줌
-    await channel.send("{} 반가워~! 디엠 보냈으니까 봐줘! ".format(name.mention))
+    await channel.send("{} 반가워~! 디엠 보냈으니까 봐줘! ".format(member.mention))
     
     #commander = discord.utils.get(message.guild.roles, name="🌱새싹 / newcomer")
     #await message.channel.send("{} Python Bot에 의해 출력됨.".format(name.mention))
