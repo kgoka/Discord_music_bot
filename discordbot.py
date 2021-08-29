@@ -135,13 +135,13 @@ async def 명령어(ctx):
 ~목록재생 -> 목록에 추가된 노래를 재생합니다.
 ~목록초기화 -> 목록에 추가된 모든 노래를 지웁니다.
 \n~대기열추가 [노래] -> 노래를 대기열에 추가합니다.
-~대기열삭제 [숫자] -> 대기열에서 입력한 숫자에 해당하는 노래를 지웁니다.""", color = 0x5882FA))
+~대기열삭제 [숫자] -> 대기열에서 입력한 숫자에 해당하는 노래를 지웁니다.""", color = 0x00FF00))
 
 
 
 @bot.command()
 async def 따라하기(ctx, *, text):  
-    await ctx.send(embed = discord.Embed(title = '따라하기', description = text , color = 0x5882FA))
+    await ctx.send(embed = discord.Embed(title = '따라하기', description = text , color = 0x00FF00))
 
 @bot.command()
 async def 들어와(ctx):
@@ -179,7 +179,7 @@ async def URL재생(ctx, *, url):
         URL = info['formats'][0]['url']
         vc.play(FFmpegPCMAudio(URL, **FFMPEG_OPTIONS))
         await ctx.send(
-            embed=discord.Embed(title="노래 재생", description="현재 " + url + "을(를) 재생하고 있습니다.", color=0x5882FA))
+            embed=discord.Embed(title="노래 재생", description="현재 " + url + "을(를) 재생하고 있습니다.", color=0x00FF00))
     else:
         await ctx.send("노래가 이미 재생되고 있습니다!")
 
@@ -226,7 +226,7 @@ async def 재생(ctx, *, msg):
             info = ydl.extract_info(url, download=False)
         URL = info['formats'][0]['url']
         await ctx.send(
-            embed=discord.Embed(title="노래 재생", description="현재 " + musicnow[0] + " 연주중..", color=0x5882FA))
+            embed=discord.Embed(title="노래 재생", description="현재 " + musicnow[0] + " 연주중..", color=0x00FF00))
         vc.play(discord.FFmpegPCMAudio(URL, **FFMPEG_OPTIONS), after=lambda e: play_next(ctx))
     else:
         user.append(msg)
@@ -238,7 +238,7 @@ async def 재생(ctx, *, msg):
 async def 일시정지(ctx):
     if vc.is_playing():
         vc.pause()
-        await ctx.send(embed = discord.Embed(title= "일시정지", description = musicnow[0]  + "을(를) 일시정지 했습니다.", color = 0x5882FA))
+        await ctx.send(embed = discord.Embed(title= "일시정지", description = musicnow[0]  + "을(를) 일시정지 했습니다.", color = 0x00FF00))
     else:
         await ctx.send("지금은 노래가 재생되지 않고있어!")
 
@@ -249,13 +249,13 @@ async def 다시재생(ctx):
     except:
          await ctx.send("지금은 노래가 재생되지 않고있어!")
     else:
-         await ctx.send(embed = discord.Embed(title= "다시재생", description = musicnow[0]  + "을(를) 다시 재생했습니다.", color = 0x5882FA))
+         await ctx.send(embed = discord.Embed(title= "다시재생", description = musicnow[0]  + "을(를) 다시 재생했습니다.", color = 0x00FF00))
 
 @bot.command()
 async def 노래끄기(ctx):
     if vc.is_playing():
         vc.stop()
-        await ctx.send(embed = discord.Embed(title= "노래끄기", description = musicnow[0]  + "을(를) 종료했습니다.", color = 0x5882FA))
+        await ctx.send(embed = discord.Embed(title= "노래끄기", description = musicnow[0]  + "을(를) 종료했습니다.", color = 0x00FF00))
     else:
         await ctx.send("지금은 노래가 재생되지 않고있어!")
 
@@ -265,7 +265,7 @@ async def 지금노래(ctx):
         await ctx.send("지금은 노래가 재생되지 않고 있어요 !")
     else:
         await ctx.send(
-            embed=discord.Embed(title="지금노래", description="현재 " + musicnow[0] + "을(를) 재생하고 있습니다.", color=0x5882FA))
+            embed=discord.Embed(title="지금노래", description="현재 " + musicnow[0] + "을(를) 재생하고 있습니다.", color=0x00FF00))
 
 
 @bot.command()
@@ -297,7 +297,7 @@ async def 멜론차트(ctx):
             info = ydl.extract_info(url, download=False)
         URL = info['formats'][0]['url']
         await ctx.send(
-            embed=discord.Embed(title="노래 재생", description="현재 " + musicnow[0] + "을(를) 재생하고 있습니다.", color=0x5882FA))
+            embed=discord.Embed(title="노래 재생", description="현재 " + musicnow[0] + "을(를) 재생하고 있습니다.", color=0x00FF00))
         vc.play(FFmpegPCMAudio(URL, **FFMPEG_OPTIONS))
     else:
         await ctx.send("이미 노래가 재생 중이라 노래를 재생할 수 없어요!")
@@ -339,7 +339,7 @@ async def 목록(ctx):
         for i in range(len(musictitle)):
             Text = Text + "\n" + str(i + 1) + ". " + str(musictitle[i])
 
-        await ctx.send(embed=discord.Embed(title="노래목록", description=Text.strip(), color=0x5882FA))
+        await ctx.send(embed=discord.Embed(title="노래목록", description=Text.strip(), color=0x00FF00))
 
 
 @bot.command()
@@ -355,7 +355,7 @@ async def 목록초기화(ctx):
             except:
                 break
         await ctx.send(
-            embed=discord.Embed(title="목록초기화", description="""목록이 정상적으로 초기화되었습니다. 이제 노래를 등록해볼까요?""", color=0x5882FA))
+            embed=discord.Embed(title="목록초기화", description="""목록이 정상적으로 초기화되었습니다. 이제 노래를 등록해볼까요?""", color=0x00FF00))
     except:
         await ctx.send("아직 아무노래도 등록하지 않았어요.")
 
@@ -397,7 +397,7 @@ async def 즐겨찾기(ctx):
                 for j in range(1, len(userFlist[i])):
                     Ftext = Ftext + "\n" + str(j) + ". " + str(userFlist[i][j])
                 titlename = str(ctx.message.author.name) + "님의 즐겨찾기"
-                embed = discord.Embed(title=titlename, description=Ftext.strip(), color=0x5882FA)
+                embed = discord.Embed(title=titlename, description=Ftext.strip(), color=0x00FF00)
                 embed.add_field(name="목록에 추가\U0001F4E5", value="즐겨찾기에 모든 곡들을 목록에 추가합니다.", inline=False)
                 embed.add_field(name="플레이리스트로 추가\U0001F4DD", value="즐겨찾기에 모든 곡들을 새로운 플레이리스트로 저장합니다.", inline=False)
                 Flist = await ctx.send(embed=embed)
