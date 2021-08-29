@@ -107,20 +107,10 @@ async def on_ready():
     print('다음으로 로그인합니다: ')
     print(bot.user.name)
     print('connection was succesful')
-    await bot.change_presence(status=discord.Status.online, activity=discord.Game("롤초중고딩 서버 응원"))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game("노래 "))
 
     if not discord.opus.is_loaded():
         discord.opus.load_opus('opus')
-
-@client.event
-async def on_member_join(member): 
-    channel = client.get_channel('794404596340228110')
-    await member.send('롤하는 초중고딩 서버에 온걸 환영해 ! \n 우선 #규칙을 꼭 필독하고 #인증 방으로 가서 인증을 받아줘! n\ https://open.kakao.com/o/gIuFcpjd 톡방 가입은 필수.. 알지??') #privit 한 메세지를 보내줌
-    await channel.send("{} 반가워~! 디엠 보냈으니까 봐줘! ".format(member.mention))
-    
-    #commander = discord.utils.get(message.guild.roles, name="🌱새싹 / newcomer")
-    #await message.channel.send("{} Python Bot에 의해 출력됨.".format(name.mention))
-
      
 
 
@@ -157,34 +147,27 @@ async def 따라하기(ctx, *, text):
 async def 들어와(ctx):
     try:
         global vc
-        await ctx.send("자~ 드가자~")
+        await ctx.send("내 연주를 들려줄게")
         vc = await ctx.message.author.voice.channel.connect()
     except:
         try:
             await ctx.message.author.voice.channel.connect()
         except:
-            await ctx.send("아무 음성채널에 접속해주세요 !")
+            await ctx.send("아무 음성채널에 들어가줘!")
 
-@bot.command()
-async def 나가(ctx):
-    try:
-        await ctx.send("또 불러줘..!!")
-        await vc.disconnect()
-    except:
-        await ctx.send("이미 그 채널에 속해있지 않아요.")
 
 
 @bot.command()
 async def URL재생(ctx, *, url):
     try:
         global vc
-        await ctx.send("자~ 드가자~")
+        await ctx.send("이건 식은죽 먹기지!")
         vc = await ctx.message.author.voice.channel.connect()
     except:
         try:
             await ctx.message.author.voice.channel.connect()
         except:
-            await ctx.send("아무 음성채널에 접속해주세요 !")
+            await ctx.send("아무 음성채널에 들어가줘!")
 
     YDL_OPTIONS = {'format': 'bestaudio', 'noplaylist': 'True'}
     FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5',
@@ -243,13 +226,13 @@ async def 재생(ctx, *, msg):
             info = ydl.extract_info(url, download=False)
         URL = info['formats'][0]['url']
         await ctx.send(
-            embed=discord.Embed(title="노래 재생", description="현재 " + musicnow[0] + "을(를) 재생하고 있습니다.", color=0x5882FA))
+            embed=discord.Embed(title="노래 재생", description="현재 " + musicnow[0] + " 연주중..", color=0x5882FA))
         vc.play(discord.FFmpegPCMAudio(URL, **FFMPEG_OPTIONS), after=lambda e: play_next(ctx))
     else:
         user.append(msg)
         result, URLTEST = title(msg)
         song_queue.append(URLTEST)
-        await ctx.send("이미 노래가 재생 중이라" + result + "을(를) 대기열로 추가시켰어요!")
+        await ctx.send("이미 노래가 재생 중이니" + result + "는 끝나고 연주해줄게!")
       
 @bot.command()
 async def 일시정지(ctx):
@@ -478,4 +461,4 @@ async def 즐겨찾기삭제(ctx, *, number):
 
 
 
-bot.run('ODU2ODc5NDQzMTIwMzU3NDA2.YNHdKw.lt6JJ-_YZc38PFS-x3nsIOKHlhI')
+bot.run('ODgxNTE1MjAyMDA3NDI5MjEw.YSt9AQ.aDNWNf22-XUgixc-wUXVefrO4fw')
