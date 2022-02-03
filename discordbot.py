@@ -461,4 +461,4 @@ async def 즐겨찾기삭제(ctx, *, number):
 
 
 
-bot.run('ODgxNTE1MjAyMDA3NDI5MjEw.YSt9AQ.aDNWNf22-XUgixc-wUXVefrO4fw')
+bot.run('토큰을 입력하세요')
